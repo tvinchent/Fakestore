@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{width: 150px;}
+        .description{width: 300px;}
+    </style>
+</head>
+<body>
+    <h1>Circle Products</h1>
+    <section id="products">
+    </section>
+    
+    <script>
+        fetch('https://fakestoreapi.com/products')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data){
+                var myData = data;
+                myData.forEach(element => {
+                    var content = document.createElement('div');
+                    content.classList = 'product';
+                    content.innerHTML = `
+                        <img src="${element.image}">
+                        <div class="title">${element.title}</div>
+                        <div class="description">${element.description}</div>
+                        <div class="price">${element.price}</div>
+                    `;
+                    document.getElementById('products').appendChild(content);
+                });
+                //document.getElementById('container').innerHTML = JSON.stringify(data);
+            })
+    </script>
+</body>
+</html>
