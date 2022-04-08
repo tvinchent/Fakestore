@@ -4,7 +4,7 @@ Proof Of Competence: à partir d'une maquette XD et d'une API, création d'une a
 
 ## TODO List
 
-~~1. Install Adobe XD~~
-~~2. Readme.md~~
-WIP - 3. Faire la maquette desktop HTML / CSS avec Roboto
-WIP - 4. Affichage des produits via l'API
+* ~~1. Install Adobe XD~~
+* ~~2. Readme.md~~
+* WIP - 3. Faire la maquette desktop HTML / CSS avec Roboto
+* WIP - 4. Affichage des produits via l'API
