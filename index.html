@@ -7,7 +7,7 @@
     <title>Circle Products</title>
     <style>
         /* J'ai du style */
-        html{font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+        html{font-family: Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
         h1{font-size: 3em;}
         h2{font-size: 2em;}
         img{width: 150px;}
@@ -28,11 +28,12 @@
     </section>
     
     <script>
-        // Fetching product from fake store
+        // recupere les produits du fake store
         fetch('https://fakestoreapi.com/products')
         .then(function(response) {
             return response.json();
         })
+        // les injecte dans le html
         .then(function(data){
             var myData = data;
             var i=0;
@@ -43,17 +44,24 @@
                     <img src="${element.image}">
                     <div class="title">${element.title}</div>
                     <div class="description">${element.description}</div>
-                    <form name="product" action="" method="get">
-                    <input type="text" name="product${i}price" value="${element.price}" onChange="price()">
+                    <form name="product${i}" action="" method="get">
+                        <input type="text" name="product${i}price" value="${element.price}" onChange="price(${i},${element.price})">
+                        <input type="submit" id="product${i}priceAction" disabled>
                     </form>
                     `;
                 i++;
                 document.getElementById('products').appendChild(content);
             });
         })
-        // Button on or off if priceCurrent != priceOrigin
-        function price(){
-            console.log(document.forms.product.product2price.value);
+        // Bouton on ou off selon que priceCurrent != priceOrigin
+        function price(prod,priceOrigin){
+            priceCurrent = document.forms['product'+prod]['product'+prod+'price'].value;
+            if(priceCurrent != priceOrigin){
+                document.getElementById('product'+prod+'priceAction').removeAttribute("disabled");
+            }
+            else if(priceCurrent == priceOrigin){
+                document.getElementById('product'+prod+'priceAction').setAttribute("disabled", true);
+            }
         }
     </script>
 </body>
