@@ -5,19 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circle Products</title>
-    <style>
-        /* J'ai du style */
-        html{font-family: Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
-        h1{font-size: 3em;}
-        h2{font-size: 2em;}
-        img{width: 150px;}
-        #products{display: flex;}
-        .product{border: 2px solid; border-radius: 1em; margin: 1em; padding: 1em}
-        .description{width: 300px;}
-        .title{font-size: 1.5em;}
-        .price{font-weight: bold;}
-        /* et je m''épile */
-    </style>
+    <link rel="stylesheet" href="fakestore.css">
 </head>
 <body>
     <!-- HTEUMEULEU -->
@@ -33,6 +21,7 @@
         .then(function(response) {
             return response.json();
         })
+
         // les injecte dans le html
         .then(function(data){
             var myData = data;
@@ -41,26 +30,35 @@
                 var content = document.createElement('div');
                 content.classList = 'product';
                 content.innerHTML = `
-                    <img src="${element.image}">
-                    <div class="title">${element.title}</div>
-                    <div class="description">${element.description}</div>
+                    <div class="image"><img src="${element.image}"></div>
+                    <div class="title"><a href="produit.html?prodNumber=${i}">${element.title}</a></div><br>
                     <form name="product${i}" action="" method="get">
-                        <input type="text" name="product${i}price" value="${element.price}" onChange="price(${i},${element.price})">
-                        <input type="submit" id="product${i}priceAction" disabled>
-                    </form>
+                        <input type="text" name="product${i}price" id="product${i}price" value="${element.price}" onChange="priceChange(${i},${element.price})">
+                        <input type="submit" id="product${i}priceAction" value="Modifier" disabled>
+                    </form><br>
+                    <div class="description">${element.description}</div>
                     `;
-                i++;
                 document.getElementById('products').appendChild(content);
+
+                // disable envoie du formulaire au clic sur "entrer" dans le champ prix
+                document.getElementById('product'+i+'price').addEventListener("keypress", function(event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                    }
+                });
+
+                i++;
+
             });
         })
         // Bouton on ou off selon que priceCurrent != priceOrigin
-        function price(prod,priceOrigin){
-            priceCurrent = document.forms['product'+prod]['product'+prod+'price'].value;
+        function priceChange(prodNumber,priceOrigin){
+            priceCurrent = document.forms['product'+prodNumber]['product'+prodNumber+'price'].value;
             if(priceCurrent != priceOrigin){
-                document.getElementById('product'+prod+'priceAction').removeAttribute("disabled");
+                document.getElementById('product'+prodNumber+'priceAction').removeAttribute("disabled");
             }
-            else if(priceCurrent == priceOrigin){
-                document.getElementById('product'+prod+'priceAction').setAttribute("disabled", true);
+            else{
+                document.getElementById('product'+prodNumber+'priceAction').setAttribute("disabled", true);
             }
         }
     </script>
