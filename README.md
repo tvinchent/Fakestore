@@ -13,8 +13,8 @@ Just import and open index.html ;)
 * ~~Affichage des produits via l'API~~
 * ~~Bouton cliquable ssi prixbase != prixactuel~~
 * ~~Disable envoie du formulaire au clic sur "entrer" dans le champ prix~~
-* (Bug) Utiliser id plutot que i, plus sûr
-* (WIP) API page détail
+* ~~(Bug) Utiliser id plutot que i, plus sûr~~
+* ~~(WIP) API page détail~~
 * (AWAIT) Intégration home, desktop HTML / CSS - Roboto
 * (AWAIT) Version mobile responsive - cohérente et ergonomique 
 * (AWAIT) Intégration de la page détail

@@ -6,14 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circle Products</title>
     <link rel="stylesheet" href="fakestore.css">
+    <link href="assets/css/fontawesome.css" rel="stylesheet">
+	<link href="assets/css/brands.css" rel="stylesheet">
+	<link href="assets/css/solid.css" rel="stylesheet">
+	<script defer src="assets/js/all.js"></script>
+	<script defer src="assets/js/solid.js"></script>
+	<script defer src="assets/js/fontawesome.js"></script>
 </head>
 <body>
-    <!-- HTEUMEULEU -->
-    <h1>Circle Products</h1>
+    
+    <div class="app">
+        <!-- MENU -->
+        <aside class="menu bleu">
+            <h1>Circle Products</h1>
+            <i class="fas fa-bars"></i>
+            <nav>
+                <ul>
+                    <li>Dashboard</li>
+                    <li>Products managements</li>
+                    <li>Employees managements</li>
+                    <hr>
+                    <li>Logout</li>
+                </ul>
+            </nav>
+        </aside>
 
-    <h2>Liste des produits</h2>
-    <section id="products">
-    </section>
+        <!-- CONTENU PRINCIPAL -->
+        <section id="products" class="grisclair">
+            <h2>Products managements</h2>
+            <nav class="droite">
+                <ul>
+                    <li>Vue table</li>
+                    <li>Vue grille</li>
+                </ul>
+            </nav>
+        </section>
+    </div>
     
     <script>
         // recupere les produits du fake store
@@ -28,6 +56,8 @@
             myData.forEach(element => {
                 var content = document.createElement('div');
                 content.classList = 'product';
+
+                // Vue briques
                 content.innerHTML = `
                     <div class="imageContainer"><img src="${element.image}"></div>
                     <div class="title"><a href="produit.html?prodNumber=${element.id}">${element.title}</a></div><br>
@@ -37,6 +67,7 @@
                     </form><br>
                     <div class="description">${element.description}</div>
                     `;
+                
                 document.getElementById('products').appendChild(content);
 
                 // disable envoie du formulaire au clic sur "entrer" dans le champ prix

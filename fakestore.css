@@ -1,10 +1,23 @@
 /* common */
-html{background-color: #ddd; font-family: Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
-h1{font-size: 3em; text-align: center;}
-h2{font-size: 2em; padding: 1em;}
+html{font-family: Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
+html, body{margin: 0; padding: 0;}
+h1{font-size: 2em; text-align: center;}
+h2{font-size: 1.5em; padding: 0.5em; color: #564AFF;}
+
+/* .menu{float: left; color: white;position: fixed;top: 0;left: 0;bottom: 0;right: 75%;overflow: auto; } */
+.droite{right: 1em;}
+
+nav > ul > li{list-style-type: none; padding: 1em;}
+hr{margin: 1em 3em 1em 1em;}
+nav.droite > ul > li{display: inline;}
+
+.bleu{background-color: #564AFF;}
+.orange{background-color: #FFA846;}
+.grisclair{background-color: #FBFBFB;}
 
 /* home */
-.product{background-color: white; display: inline-block; width: 20%; vertical-align: top; border: 2px solid; border-radius: 1em; margin: 1em; padding: 1em; height: fit-content;}
+#products{padding-left: 25%; margin: 1em;}
+.product{background-color: white; display: inline-block; width: 25%; vertical-align: top; border: 2px solid #564AFF; border-radius: 1em; margin: 1em; padding: 1em; height: fit-content;}
 .imageContainer{min-height: 300px;  width: 300px; display: flex;}
 img{width: 150px; margin: auto;}
 .title{font-size: 1.5em; min-height: 50px;}
@@ -14,6 +27,14 @@ img{width: 150px; margin: auto;}
 .productSingle{width: 90%; background-color: white; display: inline-block; vertical-align: top; border: 2px solid; border-radius: 1em; margin: 1em; padding: 1em; height: fit-content;}
 
 /* a little responsivity */
+
+
+/* mobile & tab navigation */
+aside{margin: 0; padding: 0;}
+.menu{margin-top: 0; color: white; padding: 1em;}
+#products{padding-left: 0; margin: 1em;}
+.fa-bars{top: 1em; right: 1em; position: absolute; font-size: 2em;}
+
 /* mobile */
 @media screen and (max-width:640px) {
     .product{width: 90%;}
