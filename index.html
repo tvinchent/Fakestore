@@ -19,8 +19,8 @@
         <!-- MENU -->
         <aside class="menu bleu">
             <h1>Circle Products</h1>
-            <i class="fas fa-bars"></i>
-            <nav>
+            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+            <nav class="desactivated" id="menuPrincipal">
                 <ul>
                     <li>Dashboard</li>
                     <li>Products managements</li>
@@ -88,6 +88,11 @@
             else{
                 document.getElementById('product'+prodNumber+'priceAction').setAttribute("disabled", true);
             }
+        }
+
+        //toggleMenu
+        function toggleMenu(){
+            document.getElementById('menuPrincipal').classList.toggle('desactivated');
         }
     </script>
 </body>

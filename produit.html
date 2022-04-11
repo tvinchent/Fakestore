@@ -6,16 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circle Products</title>
     <link rel="stylesheet" href="fakestore.css">
+    <link href="assets/css/fontawesome.css" rel="stylesheet">
+	<link href="assets/css/brands.css" rel="stylesheet">
+	<link href="assets/css/solid.css" rel="stylesheet">
+	<script defer src="assets/js/all.js"></script>
+	<script defer src="assets/js/solid.js"></script>
+	<script defer src="assets/js/fontawesome.js"></script>
 </head>
 <body>
-    <!-- HTEUMEULEU -->
-    <h1>Circle Products</h1>
+    <!-- HTEUMEULEU -->``
+    <div class="app">
+        <!-- MENU -->
+        <aside class="menu bleu">
+            <h1>Circle Products</h1>
+            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+            <nav class="desactivated" id="menuPrincipal">
+                <ul>
+                    <li>Dashboard</li>
+                    <li>Products managements</li>
+                    <li>Employees managements</li>
+                    <hr>
+                    <li>Logout</li>
+                </ul>
+            </nav>
+        </aside>
 
-    <a href="index.html">Retour</a>
-
-    <h2>Liste des produits</h2>
-    <section id="productSolo">
-    </section>
+        
+        <section id="productSolo" class="grisclair">
+            <h2>Liste des produits</h2>
+            <a href="index.html"><i class="fas fa-angle-left"></i></a>
+        </section>
+    </div>
     
     <script>
         // recuperation de la var prodNumber passée en URL
