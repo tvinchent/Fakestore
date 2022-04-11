@@ -11,13 +11,32 @@
     <!-- HTEUMEULEU -->
     <h1>Circle Products</h1>
 
+    <a href="index.html">Retour</a>
+
     <h2>Liste des produits</h2>
-    <section id="products">
+    <section id="productSolo">
     </section>
     
     <script>
+        // recuperation de la var prodNumber passée en URL
+        function $_GET(param) {
+            var vars = {};
+            window.location.href.replace( location.hash, '' ).replace( 
+                /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+                function( m, key, value ) { // callback
+                    vars[key] = value !== undefined ? value : '';
+                }
+            );
+
+            if ( param ) {
+                return vars[param] ? vars[param] : null;	
+            }
+            return vars;
+        }
+        var prodNumber = $_GET('prodNumber');
+
         // recupere les produits du fake store
-        fetch('https://fakestoreapi.com/products')
+        fetch('https://fakestoreapi.com/products/'+prodNumber)
         .then(function(response) {
             return response.json();
         })
@@ -25,28 +44,25 @@
         // les injecte dans le html
         .then(function(data){
             var myData = data;
-            myData.forEach(element => {
                 var content = document.createElement('div');
-                content.classList = 'product';
+                content.classList = 'productSingle';
                 content.innerHTML = `
-                    <div class="imageContainer"><img src="${element.image}"></div>
-                    <div class="title"><a href="produit.html?prodNumber=${element.id}">${element.title}</a></div><br>
-                    <form name="product${element.id}" action="" method="get">
-                        <input type="text" name="product${element.id}price" id="product${element.id}price" value="${element.price}" onChange="priceChange(${element.id},${element.price})">
-                        <input type="submit" id="product${element.id}priceAction" value="Modifier" disabled>
+                    <div class="imageContainer"><img src="${myData.image}"></div>
+                    <div class="title"><a href="produit.html?prodNumber=${myData.id}">${myData.title}</a></div><br>
+                    <form name="product${myData.id}" action="" method="get">
+                        <input type="text" name="product${myData.id}price" id="product${myData.id}price" value="${myData.price}" onChange="priceChange(${myData.id},${myData.price})">
+                        <input type="submit" id="product${myData.id}priceAction" value="Modifier" disabled>
                     </form><br>
-                    <div class="description">${element.description}</div>
+                    <div class="description">${myData.description}</div>
                     `;
-                document.getElementById('products').appendChild(content);
+                document.getElementById('productSolo').appendChild(content);
 
                 // disable envoie du formulaire au clic sur "entrer" dans le champ prix
-                document.getElementById('product'+element.id+'price').addEventListener("keypress", function(event) {
+                document.getElementById('product'+myData.id+'price').addEventListener("keypress", function(event) {
                     if (event.key === "Enter") {
                         event.preventDefault();
                     }
                 });
-
-            });
         })
         // Bouton on ou off selon que priceCurrent != priceOrigin
         function priceChange(prodNumber,priceOrigin){
