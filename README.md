@@ -15,11 +15,12 @@ Just import and open index.html ;)
 * ~~Disable envoie du formulaire au clic sur "entrer" dans le champ prix~~
 * ~~(Bug) Utiliser id plutot que i, plus sûr~~
 * ~~(WIP) API page détail~~
-* (WIP) Intégration home, desktop HTML / CSS - Roboto
-* (WIP) Version mobile responsive - cohérente et ergonomique 
-* (WIP) Intégration de la page détail
+* ~~Intégration home, desktop HTML / CSS - Roboto~~
+* ~~Version mobile responsive - cohérente et ergonomique ~~
+* ~~Intégration de la page détail~~
+* Amélioration de l'intégration
 * Class produit avec prix TTC
 * Modification du prix /!\
-* Persistence de donnée via localstorage
 * Refactorisation via VueJS
+* Persistence de donnée via localstorage
 * Websockets pour MAJ dans le cas d'une utilisation simultanée

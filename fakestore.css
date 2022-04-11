@@ -5,12 +5,14 @@ h1{font-size: 2em; text-align: center;}
 h2{font-size: 1.5em; padding: 0.5em; color: #564AFF;}
 
 .menu{float: left; color: white;position: fixed;top: 0;left: 0;bottom: 0;right: 75%;overflow: auto; } */
-.droite{right: 1em;}
+.disposition{right: 1em;}
 
 nav > ul > li{list-style-type: none; padding: 1em;}
 hr{margin: 1em 3em 1em 1em;}
 .fa-bars{display: none; }
-nav.droite > ul > li{display: inline;}
+.fa-angle-left{font-size: 2em;}
+nav.disposition > ul > li{display: inline;}
+nav.disposition > ul > li > a{text-decoration: none;}
 
 .bleu{background-color: #564AFF;}
 .orange{background-color: #FFA846;}
@@ -18,28 +20,27 @@ nav.droite > ul > li{display: inline;}
 
 /* home */
 #products, #productSolo{padding-left: 25%; margin: 1em;}
-.product{background-color: white; display: inline-block; width: 25%; vertical-align: top; border: 2px solid #564AFF; border-radius: 1em; margin: 1em; padding: 1em; height: fit-content;}
+.product, .productSingle{background-color: white; display: inline-block; width: 25%; vertical-align: top; border: 2px solid #564AFF; border-radius: 1em; margin: 1em; padding: 1em; height: fit-content;}
 .imageContainer{min-height: 300px;  width: 300px; display: flex;}
 img{width: 150px; margin: auto;}
 .title{font-size: 1.5em; min-height: 50px;}
 .price{font-weight: bold; }
 
-/* product */
-.productSingle{width: 90%; background-color: white; display: inline-block; vertical-align: top; border: 2px solid; border-radius: 1em; margin: 1em; padding: 1em; height: fit-content;}
+.productSingle{width: 80%;}
 
 /* a little responsivity */
 /* mobile & tab navigation */
 @media screen and (max-width:1080px) {
-aside{margin: 0; padding: 0;}
-.menu{margin-top: 0; color: white; padding: 1em; float: none; position: relative;}
-#products{padding-left: 0; margin: 1em;}
-.fa-bars{display: block; top: 1.5em; right: 1.5em; position: absolute; font-size: 2em; cursor: pointer;}
-.desactivated{display: none;}
+    aside{margin: 0; padding: 0;}
+    .menu{margin-top: 0; color: white; padding: 1em; float: none; position: sticky;}
+    #products{padding-left: 0; margin: 1em;}
+    .fa-bars{display: block; top: 2em; right: 2em; position: absolute; font-size: 1em; cursor: pointer;}
+    h1{font-size: 1em;}
+    .desactivated{display: none;}
 }
-
 /* mobile */
 @media screen and (max-width:640px) {
-    .product{width: 90%;}
+    .product{width: 80%;}
 }
 /* tablet */
 @media screen and (min-width:641px) and (max-width:1080px) {
