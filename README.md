@@ -2,9 +2,9 @@
 
 Proof Of Competence: à partir d'une maquette XD et d'une API, création d'une application responsive en VanillaJS puis en VueJS
 
-## HOW TO
+## HOW To
 
-Just import and open index.html ;)
+Just import and open index.html
 
 ## TODO List
 
@@ -13,13 +13,21 @@ Just import and open index.html ;)
 * ~~Affichage des produits via l'API~~
 * ~~Bouton cliquable ssi prixbase != prixactuel~~
 * ~~Disable envoie du formulaire au clic sur "entrer" dans le champ prix~~
-* ~~(Bug) Utiliser id plutot que i, plus sûr~~
-* ~~(WIP) API page détail~~
+* ~~id plutot que i, plus sûr~~
+* ~~API page détail~~
 * ~~Intégration home, desktop HTML / CSS - Roboto~~
-* ~~Version mobile responsive - cohérente et ergonomique ~~
+* ~~Version mobile responsive - cohérente et ergonomique~~
 * ~~Intégration de la page détail~~
-* Amélioration de l'intégration
-* Class produit avec prix TTC
+* ~~Amélioration de l'intégration~~
+* ~~Vue liste~~
+
+* prix TTC modifié dynamiquement
+* Produit en grid ou flex
+* Sass
+
+* Refacto en module, class prod, route + vue liste
+
+* Class produit
 * Modification du prix /!\
 * Refactorisation via VueJS
 * Persistence de donnée via localstorage

@@ -34,12 +34,26 @@
         <!-- CONTENU PRINCIPAL -->
         <section id="products" class="grisclair">
             <h2>Products managements</h2>
+            
             <nav class="disposition">
                 <ul>
                     <li><a href=""><i class="fas fa-th"></i> Vue grille</a></li>
                     <li><a href=""><i class="fas fa-list"></i> Vue liste</a></li>
                 </ul>
             </nav>
+            <table>
+                <thead class="bleu">
+                    <tr>
+                        <th>Product name</th>
+                        <th class="notOnMobile">Category</th>
+                        <th>Price</th>
+                        <th>Price (including VAT)</th>
+                    </tr>
+                </thead>
+                <tbody id="contentToFeed">
+                    
+                </tbody>
+            </table>
         </section>
     </div>
     
@@ -54,28 +68,43 @@
         .then(function(data){
             var myData = data;
             myData.forEach(element => {
-                var content = document.createElement('div');
-                content.classList = 'product';
+                
 
                 // Vue briques
-                content.innerHTML = `
-                    <div class="imageContainer"><img src="${element.image}"></div>
-                    <div class="title"><a href="produit.html?prodNumber=${element.id}">${element.title}</a></div><br>
-                    <form name="product${element.id}" action="" method="get">
-                        <input type="text" name="product${element.id}price" id="product${element.id}price" value="${element.price}" onChange="priceChange(${element.id},${element.price})">
-                        <input type="submit" id="product${element.id}priceAction" value="Modifier" disabled>
-                    </form><br>
-                    <div class="description">${element.description}</div>
-                    `;
                 
-                document.getElementById('products').appendChild(content);
+                // var content = document.createElement('div');
+                // content.classList = 'product';
+
+                // content.innerHTML = `
+                //     <div class="imageContainer"><img src="${element.image}"></div>
+                //     <div class="title"><a href="produit.html?prodNumber=${element.id}">${element.title}</a></div><br>
+                //     <form name="product${element.id}" action="" method="get">
+                //         <input type="text" name="product${element.id}price" id="product${element.id}price" value="${element.price}" onChange="priceChange(${element.id},${element.price})">
+                //         <input type="submit" id="product${element.id}priceAction" value="Modifier" disabled>
+                //     </form><br>
+                //     <div class="description">${element.description}</div>
+                //     `;
 
                 // disable envoie du formulaire au clic sur "entrer" dans le champ prix
-                document.getElementById('product'+element.id+'price').addEventListener("keypress", function(event) {
-                    if (event.key === "Enter") {
-                        event.preventDefault();
-                    }
-                });
+                // document.getElementById('product'+element.id+'price').addEventListener("keypress", function(event) {
+                //     if (event.key === "Enter") {
+                //         event.preventDefault();
+                //     }
+                // });
+
+                // Vue liste
+                var content = document.createElement('tr');
+
+                content.innerHTML = `                        
+                        <td><a href="produit.html?prodNumber=${element.id}">${element.title}</a></td>
+                        <td class="notOnMobile">${element.category}</td>
+                        <td>${element.price}</td>
+                        <td>${Math.round(element.price * 1.20)}</td>
+                    `;
+                
+                document.getElementById('contentToFeed').appendChild(content);
+
+                
 
             });
         })
