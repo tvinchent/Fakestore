@@ -34,13 +34,13 @@
         <!-- CONTENU PRINCIPAL -->
         <section id="products" class="grisclair">
             <h2>Products managements</h2>
-            
+            <!--             
             <nav class="disposition">
                 <ul>
                     <li><a href=""><i class="fas fa-th"></i> Vue grille</a></li>
                     <li><a href=""><i class="fas fa-list"></i> Vue liste</a></li>
                 </ul>
-            </nav>
+            </nav> -->
             <table>
                 <thead class="bleu">
                     <tr>
@@ -92,14 +92,25 @@
                 //     }
                 // });
 
+                // Bouton on ou off selon que priceCurrent != priceOrigin
+                // function priceChange(prodNumber,priceOrigin){
+                //     priceCurrent = document.forms['product'+prodNumber]['product'+prodNumber+'price'].value;
+                //     if(priceCurrent != priceOrigin){
+                //         document.getElementById('product'+prodNumber+'priceAction').removeAttribute("disabled");
+                //     }
+                //     else{
+                //         document.getElementById('product'+prodNumber+'priceAction').setAttribute("disabled", true);
+                //     }
+                // }
+
                 // Vue liste
                 var content = document.createElement('tr');
 
                 content.innerHTML = `                        
                         <td><a href="produit.html?prodNumber=${element.id}">${element.title}</a></td>
                         <td class="notOnMobile">${element.category}</td>
-                        <td>${element.price}</td>
-                        <td>${Math.round(element.price * 1.20)}</td>
+                        <td>${element.price}€</td>
+                        <td>${Math.round(element.price * 1.20)}€</td>
                     `;
                 
                 document.getElementById('contentToFeed').appendChild(content);
@@ -108,16 +119,6 @@
 
             });
         })
-        // Bouton on ou off selon que priceCurrent != priceOrigin
-        function priceChange(prodNumber,priceOrigin){
-            priceCurrent = document.forms['product'+prodNumber]['product'+prodNumber+'price'].value;
-            if(priceCurrent != priceOrigin){
-                document.getElementById('product'+prodNumber+'priceAction').removeAttribute("disabled");
-            }
-            else{
-                document.getElementById('product'+prodNumber+'priceAction').setAttribute("disabled", true);
-            }
-        }
 
         //toggleMenu
         function toggleMenu(){

@@ -2,7 +2,8 @@
 html{font-family: Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;}
 html, body{margin: 0; padding: 0;}
 h1{font-size: 2em; text-align: center;}
-h2{font-size: 1.5em; padding: 0.5em; color: #564AFF;}
+h2{font-size: 1.5em; padding: 0.5em; color: #564AFF; text-align: center;}
+h3{font-size: 1em; color: #564AFF;}
 
 .bleu{background-color: #564AFF;}
 .orange{background-color: #FFA846;}
@@ -14,7 +15,7 @@ h2{font-size: 1.5em; padding: 0.5em; color: #564AFF;}
 nav > ul > li{list-style-type: none; padding: 1em;}
 hr{margin: 1em 3em 1em 1em;}
 .fa-bars{display: none; }
-.fa-angle-left{font-size: 2em;}
+.fa-arrow-left{font-size: 2em;}
 nav.disposition > ul > li{display: inline;}
 nav.disposition > ul > li > a{text-decoration: none;}
 
@@ -29,8 +30,13 @@ th, td{padding: 1em;}
 img{width: 150px; margin: auto;}
 .title{font-size: 1.5em; min-height: 50px;}
 .price{font-weight: bold; }
+.descAndPrice{padding: 0 2em;}
 
 .productSingle{width: 80%;}
+
+.product3col{display: grid; grid-template-columns: 30% 50% 20%; padding: 1em;}
+.lienRetour{padding: 1em; position: absolute;}
+.productTitle{padding: 1em; margin-bottom: 2em; width: 70%; margin: auto;}
 
 /* a little responsivity */
 /* mobile & tab navigation */
@@ -41,6 +47,7 @@ img{width: 150px; margin: auto;}
     .fa-bars{display: block; top: 2em; right: 2em; position: absolute; font-size: 1em; cursor: pointer;}
     h1{font-size: 1em;}
     .desactivated{display: none;}
+    .product3col{display: flex; flex-direction: column;}
 }
 /* mobile */
 @media screen and (max-width:640px) {

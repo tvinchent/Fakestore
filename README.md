@@ -21,14 +21,17 @@ Just import and open index.html
 * ~~Amélioration de l'intégration~~
 * ~~Vue liste~~
 
+* ~~refaire page produit~~
+* refacto
+
 * prix TTC modifié dynamiquement
-* Produit en grid ou flex
-* Sass
+* Less
 
 * Refacto en module, class prod, route + vue liste
+* Produit en grid ou flex
 
-* Class produit
-* Modification du prix /!\
 * Refactorisation via VueJS
+
+* Modification du prix /!\
 * Persistence de donnée via localstorage
 * Websockets pour MAJ dans le cas d'une utilisation simultanée

@@ -26,15 +26,29 @@ fetch('https://fakestoreapi.com/products/'+prodNumber)
 .then(function(data){
     var myData = data;
         var content = document.createElement('div');
-        content.classList = 'productSingle';
+        content.classList = 'productV2';
         content.innerHTML = `
-            <div class="imageContainer"><img src="${myData.image}"></div>
-            <div class="title"><a href="produit.html?prodNumber=${myData.id}">${myData.title}</a></div><br>
-            <form name="product${myData.id}" action="" method="get">
-                <input type="text" name="product${myData.id}price" id="product${myData.id}price" value="${myData.price}" onChange="priceChange(${myData.id},${myData.price})">
-                <input type="submit" id="product${myData.id}priceAction" value="Modifier" disabled>
-            </form><br>
-            <div class="description">${myData.description}</div>
+            <a href="index.html" class="lienRetour"><i class="fas fa-arrow-left"></i></a>
+            <h2 class="productTitle">${myData.title}</h2>
+            <div class="product3col">
+                <div class="imageContainer"><img src="${myData.image}"></div>
+                <div class="descAndPrice">
+                    <h3>Description</h3>
+                    <div class="description">${myData.description}</div><br>
+                    <h3>Price</h3>
+                    <form name="product${myData.id}" action="" method="get">
+                        <input type="text" name="product${myData.id}price" id="product${myData.id}price" value="${myData.price}" onChange="priceChange(${myData.id},${myData.price})"><br><br>
+                        <input type="submit" id="product${myData.id}priceAction" value="Modifier" disabled>
+                    </form>
+                </div>
+                <div>
+                    <h3>Category</h3>
+                    ${myData.category}
+                </div>
+            </div>
+            
+            <br>
+            
             `;
         document.getElementById('products').appendChild(content);
 
