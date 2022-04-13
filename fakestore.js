@@ -47,9 +47,10 @@ function fetchAndDisplayProduct(){
                     <div class="description">${myData.description}</div><br>
                     <h3>Price</h3>
                     <form name="product${myData.id}" action="" method="get">
-                        <input type="text" name="product${myData.id}price" id="product${myData.id}price" value="${myData.price}" onChange="priceChange(${myData.id},${myData.price})"><br><br>
+                        <input type="text" name="product${myData.id}price" id="product${myData.id}price" value="${myData.price}" onChange="toggleButtonAndUpdateTVA(${myData.id},${myData.price})"><br><br>
                         <input type="submit" id="product${myData.id}priceAction" value="Modifier" disabled>
-                    </form>
+                    </form><br>
+                    <span class="blue">Price TVA: </span><div id="priceTVA">${Math.round(myData.price*1.20)}</div>
                 </div>
                 <div>
                     <h3>Category</h3>
@@ -71,8 +72,8 @@ function fetchAndDisplayProduct(){
     })
 }
 
-// Bouton on ou off selon que priceCurrent != priceOrigin
-function priceChange(prodNumber,priceOrigin){
+function toggleButtonAndUpdateTVA(prodNumber,priceOrigin){
+    // Bouton on ou off selon que priceCurrent != priceOrigin
     priceCurrent = document.forms['product'+prodNumber]['product'+prodNumber+'price'].value;
     if(priceCurrent != priceOrigin){
         document.getElementById('product'+prodNumber+'priceAction').removeAttribute("disabled");
@@ -80,4 +81,7 @@ function priceChange(prodNumber,priceOrigin){
     else{
         document.getElementById('product'+prodNumber+'priceAction').setAttribute("disabled", true);
     }
+    // update tva
+    var priceTVA = Math.round(priceCurrent*1.20);
+    document.getElementById('priceTVA').innerHTML = priceTVA;
 }

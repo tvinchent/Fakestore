@@ -23,12 +23,11 @@ Just import and open index.html
 
 * ~~refaire page produit~~
 * ~~refacto 1~~
+* ~~Less~~
+* ~~prix TTC modifié dynamiquement~~
 
-* prix TTC modifié dynamiquement
-* Less
-
-* Refacto en module, class prod, route + vue liste
-* Produit en grid ou flex
+* route + vue liste
+* Refacto en module, class prod
 
 * Refactorisation via VueJS
 
