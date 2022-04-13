@@ -22,7 +22,7 @@ Just import and open index.html
 * ~~Vue liste~~
 
 * ~~refaire page produit~~
-* refacto
+* ~~refacto 1~~
 
 * prix TTC modifié dynamiquement
 * Less

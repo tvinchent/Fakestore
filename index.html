@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Circle Products</title>
     <link rel="stylesheet" href="fakestore.css">
-    <link href="assets/css/fontawesome.css" rel="stylesheet">
-	<link href="assets/css/brands.css" rel="stylesheet">
-	<link href="assets/css/solid.css" rel="stylesheet">
-	<script defer src="assets/js/all.js"></script>
-	<script defer src="assets/js/solid.js"></script>
-	<script defer src="assets/js/fontawesome.js"></script>
+    <script src="https://kit.fontawesome.com/b30f5d3ef8.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
@@ -34,13 +29,6 @@
         <!-- CONTENU PRINCIPAL -->
         <section id="products" class="grisclair">
             <h2>Products managements</h2>
-            <!--             
-            <nav class="disposition">
-                <ul>
-                    <li><a href=""><i class="fas fa-th"></i> Vue grille</a></li>
-                    <li><a href=""><i class="fas fa-list"></i> Vue liste</a></li>
-                </ul>
-            </nav> -->
             <table>
                 <thead class="bleu">
                     <tr>
@@ -51,79 +39,16 @@
                     </tr>
                 </thead>
                 <tbody id="contentToFeed">
-                    
+                    <!-- les produits se chargent ici -->
                 </tbody>
             </table>
         </section>
     </div>
     
+    <script src="util.js"></script>
+    <script src="fakestore.js"></script>
     <script>
-        // recupere les produits du fake store
-        fetch('https://fakestoreapi.com/products')
-        .then(function(response) {
-            return response.json();
-        })
-
-        // les injecte dans le html
-        .then(function(data){
-            var myData = data;
-            myData.forEach(element => {
-                
-
-                // Vue briques
-                
-                // var content = document.createElement('div');
-                // content.classList = 'product';
-
-                // content.innerHTML = `
-                //     <div class="imageContainer"><img src="${element.image}"></div>
-                //     <div class="title"><a href="produit.html?prodNumber=${element.id}">${element.title}</a></div><br>
-                //     <form name="product${element.id}" action="" method="get">
-                //         <input type="text" name="product${element.id}price" id="product${element.id}price" value="${element.price}" onChange="priceChange(${element.id},${element.price})">
-                //         <input type="submit" id="product${element.id}priceAction" value="Modifier" disabled>
-                //     </form><br>
-                //     <div class="description">${element.description}</div>
-                //     `;
-
-                // disable envoie du formulaire au clic sur "entrer" dans le champ prix
-                // document.getElementById('product'+element.id+'price').addEventListener("keypress", function(event) {
-                //     if (event.key === "Enter") {
-                //         event.preventDefault();
-                //     }
-                // });
-
-                // Bouton on ou off selon que priceCurrent != priceOrigin
-                // function priceChange(prodNumber,priceOrigin){
-                //     priceCurrent = document.forms['product'+prodNumber]['product'+prodNumber+'price'].value;
-                //     if(priceCurrent != priceOrigin){
-                //         document.getElementById('product'+prodNumber+'priceAction').removeAttribute("disabled");
-                //     }
-                //     else{
-                //         document.getElementById('product'+prodNumber+'priceAction').setAttribute("disabled", true);
-                //     }
-                // }
-
-                // Vue liste
-                var content = document.createElement('tr');
-
-                content.innerHTML = `                        
-                        <td><a href="produit.html?prodNumber=${element.id}">${element.title}</a></td>
-                        <td class="notOnMobile">${element.category}</td>
-                        <td>${element.price}€</td>
-                        <td>${Math.round(element.price * 1.20)}€</td>
-                    `;
-                
-                document.getElementById('contentToFeed').appendChild(content);
-
-                
-
-            });
-        })
-
-        //toggleMenu
-        function toggleMenu(){
-            document.getElementById('menuPrincipal').classList.toggle('desactivated');
-        }
+        fetchAndDisplayAllProducts();
     </script>
 </body>
 </html>

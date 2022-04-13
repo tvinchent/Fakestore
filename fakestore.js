@@ -1,30 +1,40 @@
-// recuperation des var passées en URL
-function $_GET(param) {
-    var vars = {};
-    window.location.href.replace( location.hash, '' ).replace( 
-        /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-        function( m, key, value ) { // callback
-            vars[key] = value !== undefined ? value : '';
-        }
-    );
+function fetchAndDisplayAllProducts() {
+    // recupere les produits du fake store
+    fetch('https://fakestoreapi.com/products')
+    .then(function(response) {
+        return response.json();
+    })
 
-    if ( param ) {
-        return vars[param] ? vars[param] : null;	
-    }
-    return vars;
+    // les injecte dans le html
+    .then(function(data){
+        var myData = data;
+        myData.forEach(element => {
+
+            // Vue liste
+            var content = document.createElement('tr');
+
+            content.innerHTML = `                        
+                    <td><a href="produit.html?prodNumber=${element.id}">${element.title}</a></td>
+                    <td class="notOnMobile">${element.category}</td>
+                    <td>${element.price}€</td>
+                    <td>${Math.round(element.price * 1.20)}€</td>
+                `;
+            
+            document.getElementById('contentToFeed').appendChild(content);
+        });
+    })
 }
-var route = $_GET('page') ? $_GET('page') : 'index';
-var prodNumber = $_GET('prodNumber');
 
-// recupere les produits du fake store
-fetch('https://fakestoreapi.com/products/'+prodNumber)
-.then(function(response) {
-    return response.json();
-})
+function fetchAndDisplayProduct(){
+    // recupere les produits du fake store
+    fetch('https://fakestoreapi.com/products/'+prodNumber)
+    .then(function(response) {
+        return response.json();
+    })
 
-// les injecte dans le html
-.then(function(data){
-    var myData = data;
+    // les injecte dans le html
+    .then(function(data){
+        var myData = data;
         var content = document.createElement('div');
         content.classList = 'productV2';
         content.innerHTML = `
@@ -58,7 +68,9 @@ fetch('https://fakestoreapi.com/products/'+prodNumber)
                 event.preventDefault();
             }
         });
-})
+    })
+}
+
 // Bouton on ou off selon que priceCurrent != priceOrigin
 function priceChange(prodNumber,priceOrigin){
     priceCurrent = document.forms['product'+prodNumber]['product'+prodNumber+'price'].value;
@@ -68,9 +80,4 @@ function priceChange(prodNumber,priceOrigin){
     else{
         document.getElementById('product'+prodNumber+'priceAction').setAttribute("disabled", true);
     }
-}
-
-//toggleMenu
-function toggleMenu(){
-    document.getElementById('menuPrincipal').classList.toggle('desactivated');
 }
