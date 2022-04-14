@@ -7,13 +7,14 @@ function fetchAndDisplayAllProducts() {
 
     // les injecte dans le html
     .then(function(data){
-        var myData = data;
+        let myData = data;
         myData.forEach(element => {
 
             // Vue liste
-            var content = document.createElement('tr');
+            let content = document.createElement('tr');
+            content.onclick = () => window.open('produit.html?prodNumber='+element.id, false);
             content.innerHTML = `
-                <td><a href="produit.html?prodNumber=${element.id}">${element.title}</a></td>
+                <td>${element.title}</td>
                 <td class="notOnMobile"><span class="category ${element.category}">${element.category}</span></td>
                 <td>${element.price}€</td>
                 <td>${Math.round(element.price * 1.20)}€</td>
@@ -33,8 +34,8 @@ function fetchAndDisplayProduct(prodNumber){
 
     // les injecte dans le html
     .then(function(data){
-        var myData = data;
-        var content = document.createElement('div');
+        let myData = data;
+        let content = document.createElement('div');
         content.classList = 'productV2';
         content.innerHTML = `
             <a href="index.html" class="lienRetour"><i class="fas fa-arrow-left"></i></a>
@@ -81,6 +82,6 @@ function toggleButtonAndUpdateTVA(prodNumber,priceOrigin){
         document.getElementById('product'+prodNumber+'priceAction').setAttribute("disabled", true);
     }
     // update tva
-    var priceTVA = Math.round(priceCurrent*1.20);
+    let priceTVA = Math.round(priceCurrent*1.20);
     document.getElementById('priceTVA').innerHTML = priceTVA;
 }
