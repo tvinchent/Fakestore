@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Products</title>    
+    <link rel= "stylesheet/less" type="text/css" href="fakestore.less">
+    <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
+    <script src="https://kit.fontawesome.com/b30f5d3ef8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div class="app">
+        <!-- MENU -->
+        <aside class="menu bleu">
+            <h1><i class="fas fa-circle-notch"></i> Circle Products</h1>
+            <i class="fas fa-bars" onclick="toggleMenu()"></i>
+            <nav class="desactivated" id="menuPrincipal">
+                <ul>
+                    <li>Dashboard</li>
+                    <li class="on">Products managements</li>
+                    <li>Employees managements</li>
+                    <hr>
+                    <li>Logout</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- CONTENU PRINCIPAL -->
+        <section id="products" class="grisclair">
+            <!-- le prod se charge ici -->
+        </section>
+    </div>
+
+    <script src="util.js"></script>
+    <script src="fakestore.js"></script>
+    <script>
+        var prodNumber = $_GET('prodNumber');
+        fetchAndDisplayProduct(prodNumber);
+    </script>
+</body>
+</html>
