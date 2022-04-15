@@ -47,7 +47,7 @@ function fetchAndDisplayProduct(prodNumber){
                     <div class="description">${myData.description}</div><br>
                     <h3>Price</h3>
                     <form name="product${myData.id}" action="" method="get">
-                        <input type="text" name="product${myData.id}price" id="product${myData.id}price" value="${myData.price}" onChange="toggleButtonAndUpdateTVA(${myData.id},${myData.price})"><br><br>
+                        <input type="text" class="inputPrice" name="product${myData.id}price" id="product${myData.id}price" value="${myData.price}" onChange="toggleButtonAndUpdateTVA(${myData.id},${myData.price})"><br><br>
                         <input type="submit" id="product${myData.id}priceAction" value="Update product" disabled>
                     </form>
                     <div class="vat"><strong>Price</strong> (including VAT): <span id="priceTVA">${Math.round(myData.price*1.20)}</span></div>
