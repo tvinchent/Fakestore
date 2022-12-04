@@ -1,6 +1,6 @@
-# vanillaToVueJS
+# Faskestore
 
-POC: à partir d'une maquette XD et d'une API, création d'une application responsive en VanillaJS puis en VueJS
+POC: à partir d'une maquette XD et d'une API, création d'une application de produits, responsive, en VanillaJS puis en VueJS
 
 ## HOW To
 
