@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../hubvisory"
+		},
+		{
+			"path": "../js-fs"
+		},
+		{
+			"path": "../bonsai"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "vanillaToVueJS"
+	}
+}

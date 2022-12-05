@@ -9,14 +9,15 @@
     <link rel= "stylesheet/less" type="text/css" href="fakestore.less">
     <script src="https://cdn.jsdelivr.net/npm/less@4" ></script>
     <script src="https://kit.fontawesome.com/b30f5d3ef8.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3"></script>
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+    
 </head>
 <body>
     
     <div id="app" class="app">
         <!-- MENU -->
         <aside class="menu bleu">
-            <h1><i class="fas fa-circle-notch"></i> {{ client }}</h1>
+            <h1><i class="fas fa-circle-notch"></i> {{ appName }}</h1>
             <i class="fas fa-bars" onclick="toggleMenu()"></i>
             <nav class="desactivated" id="menuPrincipal">
                 <ul>
@@ -43,6 +44,12 @@
                 </thead>
                 <tbody id="contentToFeed">
                     <!-- les produits se chargent ici -->
+                    <tr v-for="product in products" :key="product.id">
+                        <td>{{product.title}}</td>
+                        <td class="notOnMobile"><span class="category {{product.category}}">{{product.category}}</span></td>
+                        <td>{{product.price}}€</td>
+                        <td>{{Math.round(product.price * 1.20)}}€</td>
+                    </tr>                    
                 </tbody>
             </table>
         </section>
@@ -50,18 +57,39 @@
     
     <script src="util.js"></script>
     <script src="fakestore.js"></script>
-    <script >
-        fetchAndDisplayAllProducts();
-    </script>
     <script>
-        Vue.createApp({
-          data() {
-            return {
-              client: 'Circle product'
-            }
-          }
-        }).mount('#app')
-        // ok, c'est leger :/
+        //fetchAndDisplayAllProducts();
     </script>
+        
+        <script type="importmap">{"imports":{"vue":"https://unpkg.com/vue@3.2.45/dist/vue.esm-browser.js"}}</script>
+
+        <script type="module">
+            import { createApp } from 'vue'
+            
+            createApp({
+                data() {
+                    return {
+                        appName: 'Circle products',
+                        products : null
+                    }
+                },
+                methods: {
+                    async fetchData() {
+                    this.products = null
+                    const res = await fetch(
+                        `https://fakestoreapi.com/products`
+                    )
+                    this.products = await res.json()
+                    console.log(this.products)
+                    }
+                },
+                mounted() {
+                    this.fetchData()
+                }
+            
+            
+            }).mount('#app')
+        </script>
+
 </body>
 </html>
