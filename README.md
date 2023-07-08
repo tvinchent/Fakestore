@@ -26,7 +26,8 @@ Just import and open index.html
 * ~~Less~~
 * ~~prix TTC modifié dynamiquement~~
 
-* Refactorisation via VueJS
+* ~~Refactorisation via VueJS~~
+
 * Refacto en module, class prod
 
 * Modification du prix /!\
