@@ -60,10 +60,6 @@
     </div>
     
     <script src="util.js"></script>
-    <script src="fakestore.js"></script>
-    <script>
-        //fetchAndDisplayAllProducts();
-    </script>
         
         <script type="importmap">{"imports":{"vue":"https://unpkg.com/vue@3.2.45/dist/vue.esm-browser.js"}}</script>
 
@@ -84,7 +80,7 @@
                             `https://fakestoreapi.com/products`
                         )
                         this.products = await res.json()
-                        console.log(this.products)
+                        // console.log(this.products)
                     },
                     productLink(id) {
                         window.open('produit.html?prodNumber='+id, false);
