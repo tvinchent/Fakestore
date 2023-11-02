@@ -1,9 +1,6 @@
 {
 	"folders": [
 		{
-			"path": "."
-		},
-		{
 			"path": "../hubvisory"
 		},
 		{
@@ -11,9 +8,18 @@
 		},
 		{
 			"path": "../bonsai"
+		},
+		{
+			"path": "../fakestore/Fakestore"
+		},
+		{
+			"path": "../../../../Users/tvinchent/Downloads/react"
+		},
+		{
+			"path": "../reactTuto"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "vanillaToVueJS"
+		"liveServer.settings.multiRootWorkspaceName": "Fakestore"
 	}
 }
