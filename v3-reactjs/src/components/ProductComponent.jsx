@@ -2,7 +2,7 @@ export function ProductComponent(){
     return (
         <>
             <tr>
-                <td>ProductPlaceHolder</td>
+                <td><a href={'/product'}>Test lien</a></td>
             </tr>
         </>
     )
