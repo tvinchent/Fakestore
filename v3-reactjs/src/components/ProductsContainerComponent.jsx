@@ -1,6 +1,22 @@
 import { ProductComponent } from './ProductComponent';
 
 export function ProductsContainerComponent () {
+
+    (function() {
+
+        // recupere les produits du fake store
+        fetch('https://fakestoreapi.com/products')
+        .then(function(response) {
+            return response.json();
+        })
+
+        .then(function(data){
+            console.log(data);
+            return data;
+        })
+
+    })();
+
     return (
         <>
             <section id="products" className="grisclair">
