@@ -1,6 +1,6 @@
 export function ProductComponent({ product }) {
   function productLink() {
-    window.open(`product/${product.id}`, '_blank');
+    window.open(`product/${product.id}`, '_parent');
   }
 
   return (

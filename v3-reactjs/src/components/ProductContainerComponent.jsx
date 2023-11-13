@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 export function ProductContainerComponent() {
   const [productData, setProductData] = useState({});
@@ -17,14 +19,15 @@ export function ProductContainerComponent() {
       });
   }, [productId]); // Include productId in the dependency array
 
-  const handleInputChange = (event) => {
-    // Handle input change here
-    console.log(event.target.value);
-  };
+//   const handleInputChange = (event) => {
+//     // Handle input change here
+//     console.log(event.target.value);
+//   };
 
   return (
-    <div className='productV2'>
-      <a href="/" className="lienRetour">Retour</a>
+    <section id='products' className='grisclair'>
+    <div className="productV2">
+      <a href="/" className="lienRetour"><FontAwesomeIcon icon={faArrowLeft} /></a>
       <h2 className="productTitle">{productData.title}</h2>
       <div className="product3col">
         <div className="imageContainer"><img src={productData.image} alt={productData.title} /></div>
@@ -39,7 +42,7 @@ export function ProductContainerComponent() {
               name={`product${productData.id}price`}
               id={`product${productData.id}price`}
               value={productData.price}
-              onChange={handleInputChange}
+            //   onChange={handleInputChange}
             /><br /><br />
             <input type="submit" id={`product${productData.id}priceAction`} value="Update product" disabled />
           </form>
@@ -52,5 +55,6 @@ export function ProductContainerComponent() {
       </div>
       <br />
     </div>
+    </section>
   );
 }
